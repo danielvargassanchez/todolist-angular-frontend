@@ -9,7 +9,14 @@
     <button (click)="showForm()">New Task</button>
   </div>
   <div class="tasks-container">
-    <div class="task" *ngFor="let task of tasks">
+    <div
+      class="task"
+      *ngFor="let task of tasks"
+      [ngClass]="{
+        canceled: task.finished == 'CANCELED',
+        finished: task.finished == 'FINISHED'
+      }"
+    >
       <h3>
         <a (click)="openTask(task.id)"> {{ task.title }} {{ task.finished }}</a>
       </h3>

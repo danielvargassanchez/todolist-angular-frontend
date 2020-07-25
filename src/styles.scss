@@ -389,3 +389,10 @@ textarea {
 a {
   cursor: pointer;
 }
+
+.canceled {
+  background-color: rgba($color: #ea0000, $alpha: 0.5);
+}
+.finished {
+  background-color: rgba($color: #36dd00, $alpha: 0.5);
+}
