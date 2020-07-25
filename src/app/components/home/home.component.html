@@ -1,15 +1,18 @@
 <div class="home-container">
   <div class="home-header">
     <h1>Angular ToDoList</h1>
+    <button (click)="logout()">Logout</button>
   </div>
   <div class="task-header">
     <h3>Tasks</h3>
+    <p>User</p>
     <button (click)="showForm()">New Task</button>
   </div>
   <div class="tasks-container">
-    <div class="task">
-      <h3><a href=""> Lorem, ipsum dolor.</a></h3>
-
+    <div class="task" *ngFor="let task of tasks">
+      <h3>
+        <a href=""> {{ task.title }}</a>
+      </h3>
       <div class="task-buttom">
         <img src="assets/checked.svg" alt="" />
         <img src="assets/trash.svg" alt="" />
