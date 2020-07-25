@@ -11,6 +11,9 @@ img {
 body {
   font-family: "Montserrat", sans-serif;
 }
+.bold-text {
+  font-weight: bold;
+}
 .login-container {
   height: 100vh;
   background: #f6f5f7;
@@ -382,4 +385,7 @@ textarea {
 .form-group input:focus {
   border-color: #4e74b7;
   outline: 0 none;
+}
+a {
+  cursor: pointer;
 }

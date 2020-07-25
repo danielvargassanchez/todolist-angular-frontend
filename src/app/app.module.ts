@@ -13,6 +13,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AlertService } from './services/alert.service';
 import { AuthService } from './services/auth.service';
+import { ErrorResposeService } from './services/error-respose.service';
+import { ShowTaskComponent } from './components/show-task/show-task.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { AuthService } from './services/auth.service';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
+    ShowTaskComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,7 @@ import { AuthService } from './services/auth.service';
     BrowserAnimationsModule,
     NgxSpinnerModule,
   ],
-  providers: [TaskService, AlertService, AuthService],
+  providers: [TaskService, AlertService, AuthService, ErrorResposeService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

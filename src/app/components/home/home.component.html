@@ -5,17 +5,27 @@
   </div>
   <div class="task-header">
     <h3>Tasks</h3>
-    <p>User</p>
+    <p>{{ myInfo.name | uppercase }}</p>
     <button (click)="showForm()">New Task</button>
   </div>
   <div class="tasks-container">
     <div class="task" *ngFor="let task of tasks">
       <h3>
-        <a href=""> {{ task.title }}</a>
+        <a (click)="openTask(task.id)"> {{ task.title }} {{ task.finished }}</a>
       </h3>
       <div class="task-buttom">
-        <img src="assets/checked.svg" alt="" />
-        <img src="assets/trash.svg" alt="" />
+        <img
+          (click)="finalizeTask(task.id)"
+          src="assets/checked.svg"
+          alt=""
+          *ngIf="task.finished == 'IN_PROCESS'"
+        />
+        <img
+          (click)="deleteTask(task.id)"
+          src="assets/trash.svg"
+          alt=""
+          *ngIf="task.finished == 'IN_PROCESS'"
+        />
       </div>
     </div>
   </div>
@@ -46,4 +56,20 @@
       <button (click)="addTask()">Add Task</button>
     </form>
   </div>
+</div>
+
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="pacman"
+  [fullScreen]="true"
+  ><p style="color: white;">Loading...</p></ngx-spinner
+>
+
+<div *ngIf="showTask">
+  <app-show-task
+    [taskId]="taskId"
+    (showTask)="showTask = $event"
+  ></app-show-task>
 </div>
